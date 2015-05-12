@@ -1,0 +1,50 @@
+//fire the bomb!
+	void FireBomb()
+	{
+		//create a bomb variable and fill it with a bomb from the list
+		//GameObject bomb = ObjectPoolerSimpleScript.current.GetPooledObject();
+		GameObject bomb = OrdnanceManager.current.GetPooledObject("Bomb");
+		//if the pooler has run out of bombs just return
+		if (bomb == null) return;
+		// set the position etc to the bombs spawn point
+		bomb.transform.position = bombSpawn.position;
+		//bomb.transform.rotation = bombSpawn.rotation;
+		bomb.SetActive(true);
+	}
+	//fire a bolt
+	void FireBolt()
+	{
+		//create a bolt variable and fill it with a bomb from the list
+		GameObject bolt = OrdnanceManager.current.GetPooledObject("Bolt");
+		//if the pooler has run out of bolts just return
+		if (bolt == null) return;
+		// tell bolt who fired it
+		bolt.GetComponent<WeaponScript>().FiringShip = gameObject.GetComponentInChildren<Collider2D>().name;
+		// set the position etc to the bolt spawn point
+		bolt.transform.position = torpedoSpawn.position;
+		//bolt.transform.rotation = torpedoSpawn.rotation;
+		if (shipController.FacingRight)
+			bolt.GetComponent<BoltScript>().FacingRight = 1;
+		else
+			bolt.GetComponent<BoltScript>().FacingRight = -1;
+		bolt.SetActive(true);
+	}
+	//fire a torpedo!
+	void FireTorpedo()
+	{
+		//create a torp variable and fill it with a bomb from the list
+		//GameObject torp = ObjectPoolerSimpleScript.current.GetPooledObject();
+		GameObject torp = OrdnanceManager.current.GetPooledObject("Red Torpedo");
+		//if the pooler has run out of bombs just return
+		if (torp == null) return;
+		// tell torp who fired it
+		torp.GetComponent<TorpedoScript>().FiringShip = gameObject.GetComponentInChildren<Collider2D>().name;
+		// set the position etc to the torp spawn point
+		torp.transform.position = torpedoSpawn.position;
+		//torp.transform.rotation = torpedoSpawn.rotation;
+		if (shipController.FacingRight)
+			torp.GetComponent<TorpedoScript>().FacingRight = 1;
+		else
+			torp.GetComponent<TorpedoScript>().FacingRight = -1;
+		torp.SetActive(true);
+	}

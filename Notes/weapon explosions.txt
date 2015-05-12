@@ -1,0 +1,9 @@
+torp 1 heads towards shield
+torp hits shield and explodes, shield takes damamge = 1 explosion, return torp to pool, shield damage accessed
+
+torp 2 heads towards shield
+torp hits shield and explodes, shield takes damage and goes down = 1 explosion, return torp to pool, shield damage accessed, shield setactive = false
+
+torp 3 heads towards enemy
+torp hits enemy and destroys it. = 2 explosions, return torp to pool, return enemy to pool
+### Do we want 2 explosions or just the enemy explosion?

@@ -1,0 +1,47 @@
+//private List<GameObject> hardpointList;
+//public int numberOfHardpoints;
+
+// helper struct to allow inspector assignment of the hardpoint objects
+
+/*public struct HardpointHelper
+	{
+		public string hardpointType;
+	}*/
+//[Serializable]
+/*public List<GameObject> hardpointInfo;
+	override protected void Start ()
+	{
+		base.Start();
+		if (numberOfHardpoints == 0)
+		{
+			print("No hardpoints defined - ShipWithWeaponsScript");
+			return;
+		}
+		hardpointList = new List<GameObject>();
+	}
+
+	override protected void Awake ()
+	{
+		base.Awake();
+	}
+	//properties
+	public GameObject GetHardpoint(int index)
+	{
+		return hardpointList[index];
+	}
+	public int HardpointListCount()
+	{
+		return hardpointList.Count;
+	}
+	public void AddHardpoint(string hardpointType)
+	{
+
+	}
+	public void RemoveHardpoint(int index)
+	{
+
+	}
+	public void RemoveHardpoint(string hardpointType, bool all)
+	{
+
+	}/*
