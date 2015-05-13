@@ -6,7 +6,7 @@ public class WeaponScript : MonoBehaviour
 	public float speed;
 	public int facingRight; 
 	public bool doesExplode;
-	private string firingShip;
+	private GameObject firingShip;
 	// do initialzation here
 	virtual protected void Start()
 	{
@@ -16,7 +16,7 @@ public class WeaponScript : MonoBehaviour
 	virtual protected void OnEnable()
 	{
 		//move the weapon while it is active
-		GetComponent<Rigidbody2D>().velocity =  transform.right * speed * facingRight; 
+		GetComponent<Rigidbody2D>().velocity = transform.right * speed * facingRight; 
 	}
 	
 	virtual protected void OnDisable()
@@ -29,7 +29,7 @@ public class WeaponScript : MonoBehaviour
 	{
 		set {facingRight = value;}
 	}
-	public string FiringShip
+	public GameObject FiringShip
 	{
 		get { return firingShip; }
 		set { firingShip = value; }
@@ -37,8 +37,11 @@ public class WeaponScript : MonoBehaviour
 	// function called when the weapon triggers another objects collider
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		// don't interact if both colliders are weapons AND have been fired from one ship
+		if (other.tag == "Weapon" && this.tag == "Weapon" && other.GetComponent<WeaponScript>().FiringShip == this.FiringShip) return;
 		// don't blow up the ship that fired the weapon!
-		if(other.gameObject.name == firingShip) return;
+		if(!other.CompareTag("Weapon") && other.transform.parent.gameObject == firingShip) return; //other as a weapon does not have a parent
+		//### other.transform.FindChild("name").gameObject;
 		// if the weapon explodes on impact
 		if (doesExplode)
 		{
@@ -52,7 +55,6 @@ public class WeaponScript : MonoBehaviour
 			//activate the explosion
 			explosion.SetActive(true);
 		}
-
 		// set active to false to mimic destruction of the weapon
 		gameObject.SetActive(false);
 		// check other for shield

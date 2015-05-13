@@ -21,9 +21,4 @@ public class TorpedoScript : WeaponScript
 	{
 		gameObject.SetActive(false);
 	}
-	// properties
-	new public int FacingRight
-	{
-		set {facingRight = value;}
-	}
 }

@@ -15,6 +15,16 @@ public class PlayerShipScript : ShipWithWeaponsScript
 	{
 		base.Awake();
 	}
+	// Update is called once per frame
+	void Update () 
+	{
+		// controls for the player to fire their weapons
+		if(Input.GetButtonDown ("Fire1"))
+			OrdnanceManager.current.FireWeapon(gameObject, "HardpointOne");
+		
+		if(Input.GetButtonDown ("Fire2"))
+			OrdnanceManager.current.FireWeapon(gameObject, "HardpointTwo");
+	}
 	// Fixed Update is called at a regular interval
 	void FixedUpdate ()
 	{
@@ -48,9 +58,9 @@ public class PlayerShipScript : ShipWithWeaponsScript
 		
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (move_horizontal * maxSpeed, move_vertical *maxSpeed);//GetComponent<Rigidbody2D>().velocity.y);
 		
-		if (move_horizontal > 0 && !facingRight)
+		if (move_horizontal > 0 && facingRight < 0)
 			Flip();
-		else if (move_horizontal < 0 && facingRight)
+		else if (move_horizontal < 0 && facingRight > 0)
 			Flip();
 	}
 }

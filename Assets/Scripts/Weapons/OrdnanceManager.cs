@@ -144,22 +144,17 @@ public class OrdnanceManager : MonoBehaviour
 		//if the pooler has run out of weapons just return
 		if (weapon == null) return;
 		// tell weapon who fired it
-		weapon.GetComponent<WeaponScript>().FiringShip = shooter.GetComponentInChildren<Collider2D>().name;
+		weapon.GetComponent<WeaponScript>().FiringShip = shooter;//.GetComponentInChildren<Collider2D>().name;
 		// get the shooter script this weapon was fired from
 		PlayerShipScript playerShipScript = shooter.GetComponent<PlayerShipScript>();
 		// set the position to the weapon hardpoint
 		//weapon.transform.position = playerShipScript.GetHardpoint(0).transform.position;
 		weapon.transform.position = hardPoint.transform.position;
 		// shoot the weapon in the direction the ship is facing
-		if (playerShipScript.FacingRight)
+		if (playerShipScript.FacingRight > 0)
 			weapon.GetComponent<WeaponScript>().FacingRight = 1;
 		else
 			weapon.GetComponent<WeaponScript>().FacingRight = -1;
 		weapon.SetActive(true);
 	}
 }
-
-
-
-
-

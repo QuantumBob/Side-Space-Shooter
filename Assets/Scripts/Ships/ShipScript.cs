@@ -4,7 +4,7 @@ using System.Collections;
 public class ShipScript : MonoBehaviour 
 {
 	public float maxSpeed;// max speed of the players ship. Change with power ups
-	protected bool facingRight = true; // which way is the ship facing (starts facing right)
+	protected int facingRight = 1; // which way is the ship facing (starts facing right)
 	protected Animator shipAnimator; // ref to the animatior object in Unity
 
 	// Use this for initialization
@@ -18,16 +18,19 @@ public class ShipScript : MonoBehaviour
 	{
 	}
 	// Properties
-	public bool FacingRight
+	public int FacingRight
 	{
 		get {return facingRight;}
 	}
 	// changes direction of the sprite
 	protected void Flip()
 	{
-		facingRight = !facingRight;
-		Vector3 the_scale = transform.localScale;
+		facingRight *= -1;
+		Vector3 the_scale = gameObject.transform.localScale;
 		the_scale.x *= -1;
-		transform.localScale = the_scale;
+		gameObject.transform.localScale = the_scale;
+		// if the ship has a laser flip it too
+		//if (gameObject.transform.Find("Laser")) 
+		//	gameObject.GetComponentInChildren<LaserScript>().Flip();
 	}
 }

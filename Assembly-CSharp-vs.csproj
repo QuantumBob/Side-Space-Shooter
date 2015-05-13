@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Weapons\Destroyable.cs" />
      <Compile Include="Assets\Scripts\Weapons\Explosion_1_Script.cs" />
      <Compile Include="Assets\Scripts\Weapons\HardpointScript.cs" />
+     <Compile Include="Assets\Scripts\Weapons\LaserScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\MeshVisiblity.cs" />
      <Compile Include="Assets\Scripts\Weapons\NukeScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\OrdnanceManager.cs" />

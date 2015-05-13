@@ -21,9 +21,4 @@ public class BoltScript : WeaponScript {
 	{
 		gameObject.SetActive(false);
 	}
-	new public int FacingRight
-	{
-		set {facingRight = value;}
-	}
-
 }
