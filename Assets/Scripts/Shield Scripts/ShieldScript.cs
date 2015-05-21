@@ -4,7 +4,7 @@ using System.Collections;
 // Class for any game object which has a shield
 public class ShieldScript : MonoBehaviour, IDamagable
 {
-	public int shieldStrength = 0;
+	public float shieldStrength = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -15,9 +15,9 @@ public class ShieldScript : MonoBehaviour, IDamagable
 			gameObject.SetActive(false);
 	}
 	// implemented from IDamagable
-	public void HitByWeapon()
+	public void HitByWeapon(float damage)
 	{
-		shieldStrength -= 1;
+		shieldStrength -= damage;
 		if (shieldStrength <= 0 )
 		{
 			// get an explosion from the pool
@@ -33,5 +33,10 @@ public class ShieldScript : MonoBehaviour, IDamagable
 			//repool or destroy object
 			OrdnanceManager.current.DestroyObject(gameObject);
 		}
+	}
+	void OnGUI ()
+	{
+		string message = "shieldStrength = " + shieldStrength;
+		GUI.Label (new Rect(10, 10,150,50), message);
 	}
 }

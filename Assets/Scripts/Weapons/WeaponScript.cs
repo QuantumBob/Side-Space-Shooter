@@ -6,6 +6,7 @@ public class WeaponScript : MonoBehaviour
 	public float speed;
 	public int facingRight; 
 	public bool doesExplode;
+	public float damage;
 	private GameObject firingShip;
 	// do initialzation here
 	virtual protected void Start()
@@ -60,11 +61,11 @@ public class WeaponScript : MonoBehaviour
 		// check other for shield
 		if (other.gameObject.tag == "Shield" && other.gameObject.activeSelf)
 		{
-			other.GetComponent<ShieldScript>().HitByWeapon();
+			other.GetComponent<ShieldScript>().HitByWeapon(damage);
 		}
 		if (other.gameObject.tag == "Armour" && other.gameObject.activeSelf)
 		{
-			other.GetComponent<ArmourScript>().HitByWeapon();
+			other.GetComponent<ArmourScript>().HitByWeapon(damage);
 		}
 
 	}

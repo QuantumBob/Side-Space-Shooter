@@ -3,6 +3,10 @@ using System.Collections;
 
 public class TorpedoScript : WeaponScript
 {
+	override protected void Start()
+	{
+		damage = 1;
+	}
 	override protected void OnEnable()
 	{
 		base.OnEnable();

@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoltScript : WeaponScript {
-
+public class BoltScript : WeaponScript
+{
+	override protected void Start()
+	{
+		damage = 1;
+	}
 	override protected void OnEnable()
 	{
 		base.OnEnable();

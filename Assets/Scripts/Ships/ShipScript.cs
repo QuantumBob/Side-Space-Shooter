@@ -30,7 +30,7 @@ public class ShipScript : MonoBehaviour
 		the_scale.x *= -1;
 		gameObject.transform.localScale = the_scale;
 		// if the ship has a laser flip it too
-		//if (gameObject.transform.Find("Laser")) 
-		//	gameObject.GetComponentInChildren<LaserScript>().Flip();
+		if (gameObject.transform.Find("Laser")) 
+			gameObject.GetComponentInChildren<LaserScript>().Flip();
 	}
 }

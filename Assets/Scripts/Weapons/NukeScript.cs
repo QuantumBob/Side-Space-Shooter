@@ -51,6 +51,10 @@ public class NukeScript : WeaponScript
 	{
 		location.Set(0,0,0);
 	}
+	override protected void Start()
+	{
+		damage = 1;
+	}
 	void Update()
 	{
 		print ("time is " + Time.time);

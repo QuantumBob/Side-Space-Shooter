@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BombScript : WeaponScript {
+public class BombScript : WeaponScript
+{
 
+	override protected void Start()
+	{
+		damage = 1;
+	}
 	override protected void OnEnable()
 	{
 		base.OnEnable();

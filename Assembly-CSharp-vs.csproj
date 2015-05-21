@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Animation Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Animation Scripts\ShipController.cs" />
+     <Compile Include="Assets\Scripts\Background\BackgroundManagerScript.cs" />
+     <Compile Include="Assets\Scripts\Background\BackgroundMoverScript.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IHasWeapons.cs" />
      <Compile Include="Assets\Scripts\Shield Scripts\ArmourScript.cs" />
